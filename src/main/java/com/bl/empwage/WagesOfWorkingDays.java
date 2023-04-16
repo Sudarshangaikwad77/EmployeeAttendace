@@ -1,19 +1,22 @@
 package com.bl.empwage;
 
-public class Wage_FoR_Month {
+public class WagesOfWorkingDays {
    public static final int IS_PART_TIME =1;
   public static final   int IS_FULL_TIME =2;
     public static final int EMP_RATE_PER_HR =20;
     public static final int NUMBER_OF_WRK_DAYS=2;
+    public static final int MAX_HRS_IN_MONTH =10;
     public static void main(String[] args) {
 
       //variables
         int emphr = 0;
-        int empWage = 0;
-        int totalEmpWage = 0;
+        int totalempHrs = 0;
+        int totalWrkngDays = 0;
 
         //computation
-        for (int day=0;day<NUMBER_OF_WRK_DAYS;day++) {
+        while (totalempHrs<=MAX_HRS_IN_MONTH && totalWrkngDays<NUMBER_OF_WRK_DAYS)
+        {      totalWrkngDays ++;
+
             int empcheck = (int) Math.floor(Math.random() * 10) % 3;
             switch (empcheck) {
                 case IS_PART_TIME:
@@ -25,10 +28,10 @@ public class Wage_FoR_Month {
                 default:
                     emphr = 0;
             }
-            empWage = emphr * EMP_RATE_PER_HR;
-            totalEmpWage +=empWage;
-            System.out.println("emmployee Wage : " + empWage);
+            totalempHrs += emphr;
+            System.out.println("Day# : "+totalWrkngDays +"emphrs : "+emphr);
         }
-        System.out.println("total emp Wage :" +totalEmpWage);
+        int totalemmpwage = totalempHrs * EMP_RATE_PER_HR;
+        System.out.println("total employee wage " +totalemmpwage);
     }
 }
