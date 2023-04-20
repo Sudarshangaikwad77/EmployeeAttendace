@@ -12,5 +12,14 @@ public class Emp_wage
         }else{
             System.out.println("Employee is Absent");
         }
-}
+        //Calculating Wage Per Hour UC-2
+
+        int hour_wage= 20;
+        int full_day=8;
+
+        int wage = (hour_wage * full_day);
+
+        System.out.println("Employee Daily wage is: "+ wage);
+
+    }
 }
