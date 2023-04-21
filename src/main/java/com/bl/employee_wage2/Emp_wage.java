@@ -48,6 +48,16 @@ public class Emp_wage
         Emp_wage = Emp_Hour * hour_wage;
         System.out.println("Your Wage: "+Emp_wage);
 
+        // UC-5 calculating month salary
+        int work_days = 20;
+        int one_day_sal = 160;
+
+        int monthly_wage = work_days * one_day_sal;
+        System.out.println("monthly salary :" +monthly_wage);
+
+
+
+
 
 
     }
