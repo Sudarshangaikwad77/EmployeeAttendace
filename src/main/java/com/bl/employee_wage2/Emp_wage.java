@@ -8,11 +8,9 @@ public class Emp_wage
 
     public static final int Max_days = 20;
 
-    public static void main(String[] args)
-
+    public static double cal_wage()
     {
 
-        System.out.println("Welcome to Employee Wage Computation");
         Scanner sc = new Scanner(System.in);
         //Employee Attendance UC-1
         int att = (int) (Math.random() * 10) % 2;
@@ -20,7 +18,9 @@ public class Emp_wage
             System.out.println("Employee is Present");
         } else {
             System.out.println("Employee is Absent");
-        }
+
+
+    }
 
         //Calculating Wage Per Hour UC-2
 
@@ -89,10 +89,22 @@ public class Emp_wage
         System.out.println("total days worked :"+total_days);
         System.out.println("total earning in month :"+total_earn);
         sc.close();
-    }
+        return total_earn;
+
+
+
+        }
+
+     //UC -7
+    public static void main(String[] args) {
+        System.out.println("welcome to employee wage project");
+        cal_wage();
+        System.out.println("total wage earned is : "  +Emp_wage.cal_wage());
 
 
     }
+}
+
 
 
 
