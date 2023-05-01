@@ -1,28 +1,47 @@
 package com.bl.empwage;
 
-public class EmpWage {
+public class EmpWage
+{
 
-    public final String Company;
-    public final int working_days;
-    public final int monthly_hour;
-    public final int Per_hour_salary;
+    public static final int Part_time =1;
+    public static final int Full_time =2;
 
-    public int totalWage;
 
-    public EmpWage(String company, int workingDays, int monthlyHour, int Per_hour_salary) {
-        this.Company = company;
-        this.working_days = workingDays;
-        this.monthly_hour = monthlyHour;
-        this.Per_hour_salary = Per_hour_salary;
+
+    public static int CalcWage(String Company, int Working_Days, int Monthly_Hour, int Per_Hour_Salary){
+        int totalHour=0;
+        int totalWorkingDays=0;
+
+        int empCheck = (int)(Math.random() * 10) % 3;
+
+        while (totalWorkingDays<=Working_Days && totalHour<=Monthly_Hour) {
+            totalWorkingDays++;
+
+            switch (empCheck) {
+                case Part_time:
+                    totalHour = 4;
+                    break;
+                case Full_time:
+                    totalHour = 8;
+                    break;
+                default:
+                    totalHour = 0;
+                    break;
+            }
+            totalWorkingDays += totalHour;
+        }
+        int totalWage = totalHour * Per_Hour_Salary;
+        System.out.println("Total Employee Salary for " + Company + " is: " + totalWage + "$");
+        return totalWage;
     }
 
-    public void setTotalWage(int totalWage) {
-        this.totalWage = totalWage;
-    }
+    public static void main(String[] args) {
 
-    public String toString() {
+        System.out.println("Welcome to Employee Wage Computation");
+        CalcWage("Infosys", 2,10,20);
+        CalcWage("Bridgelabz", 5, 80, 40);
+        CalcWage("Tesla", 12,60, 100);
 
-        return "Total Employee Wage for Comapany: " + Company + " is:" + totalWage;
+
     }
 }
-
